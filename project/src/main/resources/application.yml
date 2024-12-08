@@ -1,0 +1,26 @@
+server:
+  port: 7878
+
+spring:
+  batch:
+    job:
+      name: ${job.name:NONE}
+    jdbc:
+      initialize-schema: always
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/gitconnect
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: 1234
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 30000
+      connection-timeout: 3000
+
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    org.springframework.batch: DEBUG
