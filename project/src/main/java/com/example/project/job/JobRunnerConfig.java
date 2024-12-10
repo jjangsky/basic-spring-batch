@@ -17,6 +17,7 @@ public class JobRunnerConfig {
     private final Job helloWorldJob;
     private final Job validateParamJob;
     private final Job jobListenerJob;
+    private final Job trMigrationJob;
 
     @Bean
     public CommandLineRunner runJob() {
@@ -28,7 +29,7 @@ public class JobRunnerConfig {
                     .toJobParameters();
 
             try {
-                jobLauncher.run(jobListenerJob, jobParameters);
+                jobLauncher.run(trMigrationJob, jobParameters);
             } catch (Exception e) {
                 // Validate 예외 처리 발생
                 System.err.println("Job execution failed: " + e.getMessage());
