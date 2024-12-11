@@ -55,7 +55,7 @@ public class TrMigrationConfig {
                                 ItemProcessor<Orders, Accounts> trOrderProcessor,
                                 ItemWriter<Accounts> trOrdersWriter) {
         return new StepBuilder("trMigrationStep", jobRepository)
-                .<Orders, Accounts>chunk(5, transactionManager)
+                .<Orders, Accounts>chunk(20, transactionManager)
                 .reader(trOrdersReader)
                 .processor(trOrderProcessor)
                 .writer(trOrdersWriter)

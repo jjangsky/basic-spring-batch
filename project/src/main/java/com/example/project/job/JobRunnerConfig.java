@@ -18,6 +18,7 @@ public class JobRunnerConfig {
     private final Job validateParamJob;
     private final Job jobListenerJob;
     private final Job trMigrationJob;
+    private final Job fileReadWriteJob;
 
     @Bean
     public CommandLineRunner runJob() {
@@ -29,7 +30,7 @@ public class JobRunnerConfig {
                     .toJobParameters();
 
             try {
-                jobLauncher.run(trMigrationJob, jobParameters);
+                jobLauncher.run(fileReadWriteJob, jobParameters);
             } catch (Exception e) {
                 // Validate 예외 처리 발생
                 System.err.println("Job execution failed: " + e.getMessage());
