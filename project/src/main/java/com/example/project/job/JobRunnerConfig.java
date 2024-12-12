@@ -19,18 +19,19 @@ public class JobRunnerConfig {
     private final Job jobListenerJob;
     private final Job trMigrationJob;
     private final Job fileReadWriteJob;
+    private final Job MultipleStepJob;
 
     @Bean
     public CommandLineRunner runJob() {
         return args -> {
             // Job 실행 시 필요한 Param 설정
             JobParameters jobParameters = new JobParametersBuilder()
-                    .addLong("time", System.currentTimeMillis())
-                    .addString("fileName", "data.csv") // 유효한 파일 이름 전달
+//                    .addLong("time", System.currentTimeMillis())
+//                    .addString("fileName", "data.csv") // 유효한 파일 이름 전달
                     .toJobParameters();
 
             try {
-                jobLauncher.run(fileReadWriteJob, jobParameters);
+                jobLauncher.run(MultipleStepJob, jobParameters);
             } catch (Exception e) {
                 // Validate 예외 처리 발생
                 System.err.println("Job execution failed: " + e.getMessage());
