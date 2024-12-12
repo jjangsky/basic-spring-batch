@@ -20,6 +20,7 @@ public class JobRunnerConfig {
     private final Job trMigrationJob;
     private final Job fileReadWriteJob;
     private final Job MultipleStepJob;
+    private final Job conditionalStepJob;
 
     @Bean
     public CommandLineRunner runJob() {
@@ -31,7 +32,7 @@ public class JobRunnerConfig {
                     .toJobParameters();
 
             try {
-                jobLauncher.run(MultipleStepJob, jobParameters);
+                jobLauncher.run(conditionalStepJob, jobParameters);
             } catch (Exception e) {
                 // Validate 예외 처리 발생
                 System.err.println("Job execution failed: " + e.getMessage());
