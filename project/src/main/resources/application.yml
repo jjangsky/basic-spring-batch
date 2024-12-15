@@ -1,7 +1,9 @@
-server:
-  port: 7878
-
 spring:
+  config:
+    activate:
+        on-profile: local
+
+
   batch:
     job:
       name: ${job.name:NONE}
@@ -25,3 +27,17 @@ spring:
 logging:
   level:
     org.springframework.batch: DEBUG
+
+---
+spring:
+  config:
+    activate:
+        on-profile: test
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+
+  jpa:
+    database: h2
