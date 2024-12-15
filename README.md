@@ -19,8 +19,8 @@
 </aside>
 
 ### Spring Batch 구조
+![image (3)](https://github.com/user-attachments/assets/9b772217-551a-4e85-943a-c5d068edae6a)
 
-![image (3).png](..%2F..%2FUsers%2Fjangskyyy%2FDownloads%2Fimage%20%283%29.png)
 
 Spring Batch는 `Job Repository`, `Launcher`, `Job`, `Step` 으로 구성되어 있으며 구중 Step 하위에 `ItemReader`, `Processor`, `Writer` 의 모습으로 구성되어 있다.
 
@@ -30,7 +30,8 @@ Spring Batch는 `Job Repository`, `Launcher`, `Job`, `Step` 으로 구성되어 
 
 주로 개발하는 영역은 `Job` 과 `Step` 및 그 하위 영역에서 개발이 진행 된다.
 
----
+### More 
+
 
 [Print Hello World - 간단하게 문자열 찍는 스프링 배치 프로그램](https://www.notion.so/Print-Hello-World-158739c36ee480748f26e17760d8384e?pvs=21)
 
